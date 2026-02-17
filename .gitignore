@@ -2,13 +2,10 @@
 venv/
 .venv/
 
-# Bytecode
-__pychace__/
+__pycache__/
 *.pyc
 
-# Environment variables
 .env
 
-# IDE stuff
 .vscode/
 .idea/
