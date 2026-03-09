@@ -1,5 +1,5 @@
 import sys
-import random
+import secrets
 import string
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 from PyQt5.QtCore import Qt
@@ -20,6 +20,7 @@ class PasswordGenerator(QWidget):
         self.password_output.setAlignment(Qt.AlignCenter)
         self.generate_button = QPushButton("Generate Secure Password")
         self.save_button = QPushButton("Save Secure Password")
+        self.generate_button.clicked.connect(self.generate_password)
 
         layout.addStretch()
         layout.addWidget(self.password_output)
@@ -31,6 +32,12 @@ class PasswordGenerator(QWidget):
         layout.setContentsMargins(5,5,5,5)
 
         self.setLayout(layout)
+
+    def generate_password(self):
+        length = 16
+        characters = string.ascii_letters + string.digits + string.punctuation
+        password = "".join(secrets.choice(characters) for _ in range(length))
+        self.password_output.setText(password)
 
 
 def main():
