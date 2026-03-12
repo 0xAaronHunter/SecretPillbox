@@ -6,13 +6,11 @@ from ui.login_window import require_login
 
 
 def main():
-    """Application entry point."""
 
-    print("Starting APasswordManager")
+    print("Starting SecretPillbox")
 
     app = QApplication(sys.argv)
 
-    # Require authentication before opening vault
     authenticated = require_login()
 
     if not authenticated:
